@@ -1,9 +1,16 @@
-const express = require('express');
+const express = require('express')
 
-// App
-const app = express();
-app.post('/users', (req, res) => {
-    res.sendStatus(200);
-});
+const app = express()
 
-export default app
+app.use(express.json())
+app.post('/users', async (req, res) => {
+  const { password, username } = req.body
+  if (!password || !username) {
+    res.sendStatus(400)
+    return
+  }
+
+  res.send({ userId: 0 })
+})
+module.exports = app
+// export default app

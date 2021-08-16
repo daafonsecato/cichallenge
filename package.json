@@ -5,19 +5,27 @@
   "author": "First Last <first.last@example.com>",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "jest --detectOpenHandles"
+    "start": "node -r esm app.js",
+    "test": "jest"
   },
   "dependencies": {
+    "esm": "^3.2.25",
     "express": "^4.16.1",
     "supertest": "^6.1.5",
     "test": ">=0.0.5"
   },
   "devDependencies": {
     "jest": "^27.0.6",
+    "jest-html-reporter": "^3.4.1",
     "jest-html-reporters": "^2.1.6"
   },
   "jest": {
-    "verbose": true
+    "verbose": true,
+    "collectCoverage": true,
+    "coverageReporters": [ 
+      "lcov"
+    ],
+    "coverageDirectory": "./output/code-coverage/",
+    "reporters": ["./node_modules/jest-html-reporter"]
   }
 }
