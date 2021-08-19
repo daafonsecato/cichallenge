@@ -4,4 +4,4 @@ const app = require('./app.js')
 const PORT = 8000;
 const HOST = '0.0.0.0';
 
-app.listen(8000, () => console.log("listening on port 8080"))
+app.listen(PORT,()=>{console.log( "listen on port",PORT)});
